@@ -92,10 +92,10 @@ if let pod_archive_path = ProcessInfo.processInfo.environment["ORT_POD_LOCAL_PAT
     package.targets.append(Target.binaryTarget(name: "onnxruntime", path: pod_archive_path))
 
 } else {
-    // ORT release
+    // ORT release (mirrored in notein-dev-team GitHub Release to avoid download.onnxruntime.ai cert failures)
     package.targets.append(
        Target.binaryTarget(name: "onnxruntime",
-                           url: "https://download.onnxruntime.ai/pod-archive-onnxruntime-c-1.24.2.zip",
+                           url: "https://github.com/notein-dev-team/onnxruntime-swift-package-manager/releases/download/1.24.2-notein.1/pod-archive-onnxruntime-c-1.24.2.zip",
                            // SHA256 checksum
                            checksum: "f7100a992d2a8135168c8afd831e6a58b465349101982aa58b3e11d36e600b54")
     )
@@ -104,10 +104,10 @@ if let pod_archive_path = ProcessInfo.processInfo.environment["ORT_POD_LOCAL_PAT
 if let ext_pod_archive_path = ProcessInfo.processInfo.environment["ORT_EXTENSIONS_POD_LOCAL_PATH"] {
     package.targets.append(Target.binaryTarget(name: "onnxruntime_extensions", path: ext_pod_archive_path))
 } else {
-    // ORT Extensions release
+    // ORT Extensions release (mirrored in notein-dev-team GitHub Release)
     package.targets.append(
         Target.binaryTarget(name: "onnxruntime_extensions",
-                            url: "https://download.onnxruntime.ai/pod-archive-onnxruntime-extensions-c-0.13.0.zip",
+                            url: "https://github.com/notein-dev-team/onnxruntime-swift-package-manager/releases/download/1.24.2-notein.1/pod-archive-onnxruntime-extensions-c-0.13.0.zip",
                             // SHA256 checksum
                             checksum: "346522d1171d4c99cb0908fa8e4e9330a4a6aad39cd83ce36eb654437b33e6b5")
     )
